@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+import os
+
 """
 Django settings for storefront project.
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'store',
     'tags',
+    'likes'
 ]
 
 MIDDLEWARE = [
@@ -82,10 +86,15 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+load_dotenv()
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DJANGO_DATABASE_NAME'),
+        'HOST': os.environ.get('DJANGO_DATABASE_HOST'),
+        'USER': os.environ.get('DJANGO_DATABASE_USER'),
+        'PASSWORD': os.environ.get('DJANGO_DATABASE_PASS'),
+        'PORT': os.environ.get('DJANGO_DATABASE_PORT'),
     }
 }
 
