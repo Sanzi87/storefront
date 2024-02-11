@@ -1,9 +1,11 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 
+
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
+    
     
 class Collection(models.Model):
     title = models.CharField(max_length=255)
@@ -15,6 +17,7 @@ class Collection(models.Model):
 
     class Meta:
         ordering = ['title']
+    
     
 class Product(models.Model):
     title = models.CharField(max_length=255)
@@ -34,6 +37,7 @@ class Product(models.Model):
 
     class Meta:
         ordering = ['title']
+        
         
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
@@ -58,6 +62,7 @@ class Customer(models.Model):
     
     class Meta:
         ordering = ['first_name', 'last_name']
+        
         
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
@@ -99,3 +104,11 @@ class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField()
+    
+    
+class Review(models.Model):
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='reviews')
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateField(auto_now_add=True)
