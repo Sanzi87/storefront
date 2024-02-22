@@ -16,20 +16,15 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&n88zt%2a&0x@u_w5kaz0apyp44e)1&wt=h*h&7_7(0+cecx2-'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -69,11 +64,6 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8001',
-    'http://127.0.0.1:8001',
-]
-
 ROOT_URLCONF = 'storefront.urls'
 
 TEMPLATES = [
@@ -93,22 +83,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'storefront.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-load_dotenv()
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DJANGO_DATABASE_NAME'),
-        'HOST': os.environ.get('DJANGO_DATABASE_HOST'),
-        'USER': os.environ.get('DJANGO_DATABASE_USER'),
-        'PASSWORD': os.environ.get('DJANGO_DATABASE_PASS'),
-        'PORT': os.environ.get('DJANGO_DATABASE_PORT'),
-    }
-}
 
 
 # Password validation
@@ -177,10 +151,3 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
 }
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('DJANGO_EMAIL_HOST')
-EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_HOST_PASSWORD')
-EMAIL_PORT = os.environ.get('DJANGO_EMAIL_PORT')
-DEFAULT_FROM_EMAIL = os.environ.get('DJANGO_FROM_EMAIL')
