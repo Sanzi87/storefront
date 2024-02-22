@@ -17,6 +17,9 @@ pillow = "*"
 django-cors-headers = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-django = "*"
+pytest-watch = "*"
 
 [requires]
 python_version = "3.12"
