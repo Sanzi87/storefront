@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c980ea1bb8085b0210b4d26b125a3708491fa2bb496745dafbbd7bf4a6ca1ec1"
+            "sha256": "b22dcfa5822072b7330790362f0a17a5501f18d43f9b56580bd6af2b24f40b66"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -102,7 +102,7 @@
                 "sha256:f7f5baafcc48261359e14bcd6d9bff6d4b28d9103847c9e136694cb0501aef87",
                 "sha256:fc48c783f9c87e60831201f2cce7f3b2e4846bf4d8728eabe54d60700b318a0b"
             ],
-            "markers": "platform_python_implementation != 'PyPy'",
+            "markers": "python_version >= '3.8'",
             "version": "==1.17.1"
         },
         "charset-normalizer": {
@@ -213,7 +213,7 @@
                 "sha256:fe9f97feb71aa9896b81973a7bbada8c49501dc73e58a10fcef6663af95e5079",
                 "sha256:ffc519621dce0c767e96b9c53f09c5d215578e10b02c285809f76509a3931482"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==3.4.0"
         },
         "cryptography": {
@@ -263,6 +263,7 @@
                 "sha256:f11aa87ad8d5617171e3f77e1d5d16f004b79a2cf5d2e1d2b97a6a1f8e9ba5ed"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.10'",
             "version": "==5.1.2"
         },
         "django-cors-headers": {
@@ -271,6 +272,7 @@
                 "sha256:8edbc0497e611c24d5150e0055d3b178c6534b8ed826fb6f53b21c63f5d48ba3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==4.6.0"
         },
         "django-debug-toolbar": {
@@ -279,6 +281,7 @@
                 "sha256:3beb671c9ec44ffb817fad2780667f172bd1c067dbcabad6268ce39a81335f45"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.4.6"
         },
         "django-filter": {
@@ -287,7 +290,17 @@
                 "sha256:d8ccaf6732afd21ca0542f6733b11591030fa98669f8d15599b358e24a2cd9c3"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==24.3"
+        },
+        "django-jazzmin": {
+            "hashes": [
+                "sha256:12a0a4c1d4fd09c2eef22acf6a1f03112b515ba695c59faa8ea80efc81c1f21b",
+                "sha256:67ae148bade41267a09ca8e4352ddefa6121795ebbac238bb9a6564ff841eb1b"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==3.0.1"
         },
         "django-templated-mail": {
             "hashes": [
@@ -302,6 +315,7 @@
                 "sha256:36fe88cd2d6c6bec23dca9804bab2ba5517a8bb9d8f47ebc68981b56840107ad"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==3.15.2"
         },
         "djangorestframework-simplejwt": {
@@ -310,6 +324,7 @@
                 "sha256:6c4bd37537440bc439564ebf7d6085e74c5411485197073f508ebdfa34bc9fae"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==5.3.1"
         },
         "djoser": {
@@ -318,6 +333,7 @@
                 "sha256:28545bfb15096dd26e0d74b49b4dd267c0a8d5f9d562225ecc60c83289799131"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8' and python_version < '4.0'",
             "version": "==2.2.3"
         },
         "drf-nested-routers": {
@@ -326,6 +342,7 @@
                 "sha256:3a8ec45a025c0f39188ec1ec415244beb875a6f4db87911a1f5a606d09b68c9f"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==0.94.1"
         },
         "idna": {
@@ -348,6 +365,7 @@
                 "sha256:e871ede4261d0d42b8ed20a2459db411c7deafedd8e77b7e4ba760be4a6a752b"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==2.2.5"
         },
         "oauthlib": {
@@ -437,6 +455,7 @@
                 "sha256:fcb4621042ac4b7865c179bb972ed0da0218a076dc1820ffc48b1d74c1e37fe9"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==11.0.0"
         },
         "pycparser": {
@@ -461,6 +480,7 @@
                 "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==1.0.1"
         },
         "python3-openid": {
@@ -524,7 +544,7 @@
                 "sha256:7d85cc416e9382e69095b7bdf4afd9e3880418a2413feec7069d533d6b4e31cc",
                 "sha256:a48093786cdcde33cad18c2555e8532f34422074448fbc874186f0abd79565cd"
             ],
-            "markers": "sys_platform == 'win32'",
+            "markers": "python_version >= '2'",
             "version": "==2024.2"
         },
         "urllib3": {
@@ -541,6 +561,7 @@
                 "sha256:df12dce147a043d1956d81d288c6f0044147c6d2ab9726e5772ac50fb45d2280"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.9'",
             "version": "==6.8.2"
         }
     },
@@ -550,7 +571,7 @@
                 "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44",
                 "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"
             ],
-            "markers": "sys_platform == 'win32'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6'",
             "version": "==0.4.6"
         },
         "docopt": {
@@ -589,6 +610,7 @@
                 "sha256:a6853c7375b2663155079443d2e45de913a911a11d669df02a50814944db57b2"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==8.3.3"
         },
         "pytest-django": {
@@ -597,6 +619,7 @@
                 "sha256:8bf7bc358c9ae6f6fc51b6cebb190fe20212196e6807121f11bd6a3b03428314"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.8'",
             "version": "==4.9.0"
         },
         "pytest-watch": {

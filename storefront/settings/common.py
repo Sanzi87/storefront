@@ -30,6 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.auth',
@@ -150,4 +151,28 @@ DJOSER = {
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+JAZZMIN_UI_TWEAKS = {
+    'theme': 'solar',
+}
+
+JAZZMIN_SETTINGS = {
+    'icons': {
+        'auth': 'fas fa-users',
+        'auth.User': 'fas fa-user',
+        'auth.Group': 'fas fa-users',
+        'core': 'fas fa-user',
+        'core.User': 'fas fa-user',
+        'store': 'fas fa-store',
+        'store.Customer': 'fas fa-universal-access',
+        'store.Collection': 'fas fa-folder-open',
+        'store.Product': 'fas fa-list',
+        'store.Order': 'fas fa-hand-holding-dollar',
+        'tags': 'fas fa-tag',
+        'tags.tag': 'fas fa-tag',
+        'likes': 'fas fa-heart',
+        'likes.LikedItem': 'fas fa-heart',
+    },
+
 }

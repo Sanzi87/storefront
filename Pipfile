@@ -17,6 +17,7 @@ django-cors-headers = "*"
 python-dotenv = "*"
 django = "*"
 redis = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 pytest = "*"
