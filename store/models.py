@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.conf import settings
-from django.core.validators import MinValueValidator, FileExtensionValidator
+from django.core.validators import MinValueValidator, FileExtensionValidator, RegexValidator
 from django.db import models
 from uuid import uuid4
 
@@ -88,6 +88,42 @@ class Customer(models.Model):
         ]
 
 
+class Address(models.Model):
+    COUNTRY_BELGIUM = 'BG'
+    COUNTRY_CYPRUS = 'CY'
+    COUNTRY_DENMARK = 'DK'
+    COUNTRY_FINLAND = 'FI'
+    COUNTRY_FRANCE = 'FR'
+    COUNTRY_GERMANY = 'DE'
+    COUNTRY_LUXEMBURG = 'LU'
+    COUNTRY_NETHERLANDS = 'NL'
+    COUNTRY_SWEDEN = 'SE'
+
+    COUNTRY_CHOICES = [
+        (COUNTRY_BELGIUM, 'Belgium'),
+        (COUNTRY_CYPRUS, 'Cyprus'),
+        (COUNTRY_DENMARK, 'Denmark'),
+        (COUNTRY_FINLAND, 'Finland'),
+        (COUNTRY_FRANCE, 'France'),
+        (COUNTRY_GERMANY, 'Germany'),
+        (COUNTRY_LUXEMBURG, 'Luxembourg'),
+        (COUNTRY_NETHERLANDS, 'Netherlands'),
+        (COUNTRY_SWEDEN, 'Sweden')
+    ]
+
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=60)
+    zip = models.CharField(
+        max_length=5,
+        validators=[RegexValidator(
+            r'^\d{4,5}$', 'Please enter a valid 4- or 5-digit ZIP code.')]
+    )
+    country = models.CharField(
+        max_length=2, choices=COUNTRY_CHOICES, default=COUNTRY_SWEDEN)
+    customer = models.ForeignKey(
+        Customer, on_delete=models.CASCADE)
+
+
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
     PAYMENT_STATUS_COMPLETE = 'C'
@@ -102,6 +138,9 @@ class Order(models.Model):
     payment_status = models.CharField(
         max_length=1, choices=PAYMENT_STATUS_CHOICES, default=PAYMENT_STATUS_PENDING)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
+    shipping_address = models.ForeignKey(
+        Address, on_delete=models.SET_NULL, null=True, blank=True, related_name="orders"
+    )
 
     class Meta:
         permissions = [
@@ -116,13 +155,6 @@ class OrderItem(models.Model):
         Product, on_delete=models.PROTECT, related_name='orderitems')
     quantity = models.PositiveSmallIntegerField()
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
-
-
-class Address(models.Model):
-    street = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
-    customer = models.ForeignKey(
-        Customer, on_delete=models.CASCADE)
 
 
 class Cart(models.Model):
